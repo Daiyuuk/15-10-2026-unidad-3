@@ -1,0 +1,7 @@
+def carrito_context(request):
+    """Permite acceder al numero de figuras en el carrito de cualquier plantilla """
+    carrito = request.session.get('carrito',())
+    total_items = sum(items.get('cantitad, 0') for items in carrito.values())
+    return{
+        'carrito_total_items' : total_items
+    }
